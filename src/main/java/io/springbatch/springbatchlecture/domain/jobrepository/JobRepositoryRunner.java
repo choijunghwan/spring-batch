@@ -1,4 +1,4 @@
-package io.springbatch.springbatchlecture.domain.jobexecution;
+package io.springbatch.springbatchlecture.domain.jobrepository;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
@@ -9,23 +9,17 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
 @Component
-public class JobExecutionTest implements ApplicationRunner {
-
+public class JobRepositoryRunner implements ApplicationRunner {
     @Autowired
     private JobLauncher jobLauncher;
 
     @Autowired
-    private Job jobExecution;
-
+    private Job jopRepository;
     @Override
     public void run(ApplicationArguments args) throws Exception {
         JobParameters jobParameters = new JobParametersBuilder()
-                .addString("name", "user5")
                 .toJobParameters();
-
-//        jobLauncher.run(jobExecution, jobParameters);
+//        jobLauncher.run(jopRepository, jobParameters);
     }
 }
