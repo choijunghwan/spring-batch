@@ -1,9 +1,7 @@
-package io.springbatch.springbatchlecture.domain.jobinstance;
+package io.springbatch.springbatchlecture.job.incrementer;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.batch.core.Job;
-import org.springframework.batch.core.Step;
-import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.*;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
@@ -15,17 +13,17 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class JobConfiguration {
+public class IncremeterConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Job jobInstance() {
-        return jobBuilderFactory.get("batchJob1")
-                .incrementer(new RunIdIncrementer())
+    public Job incrementer() {
+        return jobBuilderFactory.get("incrementer")
                 .start(step1())
                 .next(step2())
+                .incrementer(new CustomJobParametersIncrementer())
                 .build();
     }
 
