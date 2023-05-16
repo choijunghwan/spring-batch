@@ -24,6 +24,6 @@ public class JobStepRunner implements ApplicationRunner {
                 .addString("name", "user7")
                 .toJobParameters();
 
-        jobLauncher.run(parentJob, jobParameters);
+//        jobLauncher.run(parentJob, jobParameters);
     }
 }
