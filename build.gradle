@@ -27,6 +27,7 @@ dependencies {
 
 	implementation 'org.springframework:spring-oxm:5.3.7'
 	implementation 'com.thoughtworks.xstream:xstream:1.4.16'
+	implementation 'org.modelmapper:modelmapper:2.3.0'
 }
 
 tasks.named('test') {
