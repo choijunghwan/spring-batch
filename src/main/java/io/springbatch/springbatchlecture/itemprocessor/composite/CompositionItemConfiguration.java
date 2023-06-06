@@ -33,7 +33,6 @@ public class CompositionItemConfiguration {
                 .build();
     }
 
-    @Bean
     public Step step1() throws Exception {
         return stepBuilderFactory.get("step1")
                 .<String, String>chunk(10)
@@ -51,7 +50,6 @@ public class CompositionItemConfiguration {
                 .build();
     }
 
-    @Bean
     public ItemProcessor<? super String, String> customItemProcessor() {
         List itemProcessor = new ArrayList();
         itemProcessor.add(new CustomItemProcessor());

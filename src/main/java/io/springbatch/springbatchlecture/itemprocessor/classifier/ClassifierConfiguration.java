@@ -29,7 +29,6 @@ public class ClassifierConfiguration {
                 .build();
     }
 
-    @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
                 .<ProcessorInfo, ProcessorInfo>chunk(10)
@@ -48,7 +47,6 @@ public class ClassifierConfiguration {
                 .build();
     }
 
-    @Bean
     public ItemProcessor<? super ProcessorInfo, ? extends ProcessorInfo> customeItemProcessor() {
         ClassifierCompositeItemProcessor<ProcessorInfo, ProcessorInfo> processor = new ClassifierCompositeItemProcessor<>();
 
